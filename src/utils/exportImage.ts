@@ -7,7 +7,7 @@ export default async function exportImage(node: HTMLElement) {
         const { toPng } = await import('html-to-image');
         const dataUrl = await toPng(node, { quality: 0.89 });
         const link = document.createElement("a");
-        link.download = "code.png";
+        link.download = `code-${Date.now().toString()}.png`;
         link.href = dataUrl;
         link.click();
     } catch (err) {
